@@ -3,6 +3,7 @@ require('dotenv').config()
 const cors = require('cors')
 const loginRouter = require('./Router/loginRouter')
 const userRouter = require('./Router/userRouter')
+const superheroROuter = require('./Router/superHeroRouter')
 require('./DB/connection')
 
 const shServer = express()
@@ -10,6 +11,7 @@ shServer.use(cors())
 shServer.use(express.json())
 shServer.use(loginRouter)
 shServer.use(userRouter)
+shServer.use(superheroROuter)
 
 shServer.use('/uploads',express.static('./uploads'))
 
