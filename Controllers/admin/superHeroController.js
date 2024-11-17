@@ -1,4 +1,5 @@
 const grievanceData = require("../../Models/grievanceSchema")
+const solvedGrievance = require("../../Models/solvedGrievance")
 const users = require("../../Models/userSchema")
 
 exports.getsuserdetails = async(req,res)=>{
@@ -78,3 +79,31 @@ exports.getSelectedDetails = async(req,res)=>{
         res.status(401).json(err)
     }
 }
+
+
+
+exports.addToSolvedGRrievance = async (req,res)=>{
+    // console.log("inside add to solved grievnace controller")
+    // console.log(req.params)
+    const {id} = req.params
+
+    try{
+
+        const getGrievance = await grievanceData.findById(id)
+        if(!getGrievance){
+            res.status(400).json("grievance is not found")
+        }
+
+        const addToSolved =  new solvedGrievance(getGrievance.toObject())
+        await addToSolved.save()
+
+        await grievanceData.findByIdAndDelete(id)
+        res.status(200).json("grievnace is delted and addded to solvedGrievance")
+
+    }
+    catch(err){
+        res.json(401).json(err)
+
+    }
+}
+
