@@ -10,7 +10,7 @@ exports.getsuserdetails = async(req,res)=>{
     }
     catch(err)
     {
-        console.log("getting user details failed due to")
+        // console.log("getting user details failed due to")
         res.status(401).json(err)
     }
 }
@@ -25,7 +25,7 @@ exports.getCountGrievance = async(req,res)=>{
     }
     catch(err)
     {
-        console.log("getting grievnace details failed due to")
+        // console.log("getting grievnace details failed due to")
         res.status(401).json(err)
     }
 }
@@ -58,7 +58,7 @@ exports.getGrievanceDetails = async(req,res)=>{
     }
     catch(err)
     {
-        console.log("getting grievnace details failed due to")
+        // console.log("getting grievnace details failed due to")
         res.status(401).json(err)
     }
 

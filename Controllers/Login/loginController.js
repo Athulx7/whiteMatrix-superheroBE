@@ -27,7 +27,7 @@ exports.register = async(req,res)=>{
 
     }
     catch(err){
-        console.log("registration failed due to")
+        // console.log("registration failed due to")
         res.status(401).json(err)
     }
 
@@ -52,7 +52,7 @@ exports.loginUser = async(req,res)=>{
 
     }
     catch(err){
-        console.log("login failed due to ")
+        // console.log("login failed due to ")
         res.status(401).json(err)
     }
 }

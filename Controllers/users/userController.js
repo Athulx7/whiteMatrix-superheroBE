@@ -61,7 +61,7 @@ exports.addGrievance = async (req, res) => {
 
     }
     catch (err) {
-        console.log("adding grievance from user is faild due to ")
+        // console.log("adding grievance from user is faild due to ")
         res.status(401).json(err)
     }
 
